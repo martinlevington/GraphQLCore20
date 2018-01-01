@@ -19,9 +19,9 @@ using StarWars.Data.InMemory;
 
 namespace StarWars
 {
-    public class Startup
+    public class StartupTest
     {
-        public Startup(IConfiguration configuration)
+        public StartupTest(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -38,11 +38,10 @@ namespace StarWars
 
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();
             var sp = services.BuildServiceProvider();
-            services.AddTransient<ISchema>( x => new Schema{ Query = sp.GetService<StarWarsQuery>() });
+            services.AddTransient<ISchema>(x => new Schema { Query = sp.GetService<StarWarsQuery>() });
 
             services.AddDbContext<StarWarsContext>(options =>
-                options.UseSqlServer(Configuration["ConnectionStrings:StarWarsDatabaseConnection"])
-            );
+                options.UseInMemoryDatabase(databaseName: "StarWars"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

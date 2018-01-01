@@ -9,11 +9,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="GraphQL" Version="0.17.3" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StarWars.Data.InMemory\StarWars.Data.InMemory.csproj" />
+    <ProjectReference Include="..\StarWars.Data\StarWars.Data.EfCore.csproj" />
+    <ProjectReference Include="..\StarWars.Domain\StarWars.Core.csproj" />
   </ItemGroup>
 
 </Project>
