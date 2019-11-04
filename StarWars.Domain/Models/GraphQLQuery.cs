@@ -29,9 +29,7 @@ namespace StarWars.Core.Models
             {
                 builder.AppendLine($"Variables = {Variables}");
             }
-
             return builder.ToString();
         }
-
     }
 }
